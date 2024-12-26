@@ -1,0 +1,28 @@
+<div class="card mt-6 rounded border bg-white h-96 w-[300px] pb-4 relative pointer">
+
+  <div class="flex flex-col justify-center items-center w-full h-full">
+    <div class="flex justify-center items-center  w-full  h-[100rem]">
+      <img src="/images/meat.jpeg" class="w-48">
+    </div>
+
+    <div class="border-t w-[94%] pt-4 flex flex-col items-center justify-center">
+      <p class="">Air Plant</p>
+      <span itemprop="price" class="text-[#6bb42f] text-base leading-5 font-medium">{{ product.price | currency:'NGN':'symbol':'1.2-2' }} </span>
+      <div class="flex mt-2">
+        <input [(ngModel)]="quantity" value="1" name="" type="number"
+          class="w-14 border-[1px] bg-[#f7f7f7] border-[#e5e5e5] p-3 rounded-l-full">
+        <button (click)="addToCart()" class="before:ease px-6 rounded-r-full flex justify-center items-center bg-blue-900 ${customStyle} text-[17px] relative
+  h-full py-1 overflow-hidden shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48
+  before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-[#6bb42f]
+  before:transition-all before:duration-300 hover:text-white hover:shadow-black hover:before:-rotate-180" >
+          <span class="relative z-10 text-sm text-white">Add to Cart</span>
+        </button>
+        <!-- <app-button
+        [label]="'Add to Cart'"
+        [type]="'primary'"
+        (onClick)="addToCart()"
+      ></app-button> -->
+      </div>
+    </div>
+  </div>
+</div>

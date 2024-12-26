@@ -1,0 +1,129 @@
+<!-- cart-modal.component.html
+<div
+  class="fixed top-0 inset-x-0 z-50 flex items-start justify-center pt-4 px-4 sm:pt-20 sm:px-0"
+  *ngIf="isVisible"
+>
+  <div
+    class="relative bg-white rounded-lg shadow-xl overflow-hidden w-full max-w-md"
+  >
+    <div class="bg-green-100 p-4">
+      <h3 class="text-green-600 text-lg font-semibold flex items-center">
+        <span class="material-icons-outlined mr-2">check_circle</span>
+        Product successfully added to your shopping cart
+      </h3>
+    </div>
+    <div class="p-4">
+      <div class="mb-2">
+        <h4 class="font-bold">Dragon Tree</h4>
+        <p>$27.84</p>
+      </div>
+      <div class="mb-2">
+        <p>Dimension: 40x60cm</p>
+        <p>Quantity: 2</p>
+      </div>
+      <div class="border-t border-gray-200 pt-2">
+        <p class="mb-1">There are 5 items in your cart.</p>
+        <p class="flex justify-between">
+          <span>Total products:</span>
+          <span>$139.20</span>
+        </p>
+        <p class="flex justify-between">
+          <span>Total shipping:</span>
+          <span>$0.00</span>
+        </p>
+        <p class="flex justify-between font-semibold">
+          <span>Total (tax incl.):</span>
+          <span>$139.20</span>
+        </p>
+      </div>
+      <div class="mt-4 flex justify-between">
+        <button
+          class="text-blue-500 hover:text-blue-700 font-semibold"
+          (click)="continueShopping()"
+        >
+          CONTINUE SHOPPING
+        </button>
+        <button
+          class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
+          (click)="proceedToCheckout()"
+        >
+          PROCEED TO CHECKOUT
+        </button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- Modal Content -->
+<div class="fixed inset-0 bg-black bg-opacity-50 flex items-start justify-center pt-10"
+*ngIf="isVisible"
+>
+  <div class="bg-white rounded-lg shadow-lg w-full max-w-3xl">
+    <!-- Modal Header -->
+    <div class="flex items-center justify-between p-4 border-b">
+      <h4 class="text-lg font-semibold flex items-center">
+        <span class="material-icons-outlined mr-2"></span> Product successfully added to your shopping cart
+      </h4>
+      <button
+        type="button"
+        class="text-gray-500 hover:text-gray-700"
+        aria-label="Close"
+        (click)="hide()"
+      >
+        <span aria-hidden="true" class="text-2xl">&times;</span>
+      </button>
+    </div>
+
+    <!-- Modal Body -->
+    <div class="p-4">
+      <div class="flex flex-wrap -mx-2">
+        <!-- Left Column -->
+        <div class="w-full md:w-5/12 px-2 border-r">
+          <div class="flex">
+            <div class="w-1/2">
+              <img
+                class="w-full rounded"
+                src="https://prestashop.mahardhi.com/MT07/greensgarden/02/45-medium_default/the-adventure-begins-framed-poster.jpg"
+                alt="Dragon Tree"
+              />
+            </div>
+            <div class="w-1/2 pl-2">
+              <h6 class="text-lg font-bold">Dragon Tree</h6>
+              <p class="text-gray-600">$27.84</p>
+              <span class="block text-sm"><strong>Dimension</strong>: 40x60cm</span>
+              <p class="text-sm"><strong>Quantity:</strong> 2</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="w-full md:w-7/12 px-2">
+          <div class="pl-4">
+            <p class="mb-1 text-sm">There are 5 items in your cart.</p>
+            <p class="flex justify-between text-sm">
+              <span class="label font-medium">Total products:</span>
+              <span class="value">$139.20</span>
+            </p>
+            <p class="flex justify-between text-sm">
+              <span class="label font-medium">Total shipping:</span>
+              <span class="value">$0.00</span>
+            </p>
+            <p class="flex justify-between text-sm font-semibold">
+              <span class="label">Total (tax incl.):</span>
+              <span class="value">$139.20</span>
+            </p>
+            <!-- Buttons -->
+            <div class="mt-4 flex space-x-2">
+
+
+                <app-button btn_text ="Continue shopping" (onClick)="hide()">  </app-button>
+                <app-button btn_text="Proceed to Checkout"></app-button>
+                <!-- <span>Proceed to checkout</span> -->
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

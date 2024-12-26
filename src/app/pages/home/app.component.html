@@ -19,19 +19,30 @@
           </li>
         </ul>
       </div>
-      <div class="flex gap-6">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
-          <path
-            d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z" />
-        </svg> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-          fill="#5f6368">
-          <path
-            d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z" />
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
-          <path
-            d="M200-80q-33 0-56.5-23.5T120-160v-480q0-33 23.5-56.5T200-720h80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720h80q33 0 56.5 23.5T840-640v480q0 33-23.5 56.5T760-80H200Zm0-80h560v-480H200v480Zm280-240q83 0 141.5-58.5T680-600h-80q0 50-35 85t-85 35q-50 0-85-35t-35-85h-80q0 83 58.5 141.5T480-400ZM360-720h240q0-50-35-85t-85-35q-50 0-85 35t-35 85ZM200-160v-480 480Z" />
-        </svg>
+      <div class="flex justify-between ">
+        <div class="cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+            <path
+              d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z" />
+          </svg>
+        </div>
+        <div class=" mx-5 cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+            <path
+              d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z" />
+          </svg>
+        </div>
+        <div class="relative w-full cursor-pointer">
+          <div>
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="40px" fill="#5f6368">
+              <path
+                d="M200-80q-33 0-56.5-23.5T120-160v-480q0-33 23.5-56.5T200-720h80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720h80q33 0 56.5 23.5T840-640v480q0 33-23.5 56.5T760-80H200Zm0-80h560v-480H200v480Zm280-240q83 0 141.5-58.5T680-600h-80q0 50-35 85t-85 35q-50 0-85-35t-35-85h-80q0 83 58.5 141.5T480-400ZM360-720h240q0-50-35-85t-85-35q-50 0-85 35t-35 85ZM200-160v-480 480Z" />
+            </svg>
+          </div>
+          <div class="rounded-full w-[50%] bg-red-600 flex justify-center items-center absolute top-0 right-[1px]">
+            <p class="rounded-full  text-white text-[12px]">{{cartCount}}</p>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -94,36 +105,37 @@
 
       <!-- product card wrapper -->
       <div class="flex w-full flex-wrap justify-between py-5 lg:max-w-7xl sm:max-w-6xl mx-auto items-center">
-        <div *ngFor="let item of dummyProduct" class="card mt-6 rounded border bg-white h-96 w-[300px] pb-4 relative">
-          <div class="flex flex-col justify-center items-center w-full h-full">
+        <!-- <div *ngFor="let item of products"
+          class="card mt-6 rounded border bg-white h-96 w-[300px] pb-4 relative pointer"> -->
+        <!-- <div class="flex flex-col justify-center items-center w-full h-full">
             <div class="flex justify-center items-center  w-full  h-[100rem]">
               <img src="/images/meat.jpeg" class="w-48">
             </div>
 
             <div class="border-t w-[94%] pt-4 flex flex-col items-center justify-center">
               <p class="">Air Plant</p>
-              <span itemprop="price" class="text-[#6bb42f] text-base leading-5 font-medium">$22.94</span>
+              <span itemprop="price" class="text-[#6bb42f] text-base leading-5 font-medium">{{ item.price | currency:'NGN':'symbol':'1.2-2' }} </span>
               <div class="flex mt-2">
                 <input value="1" name="" type="number"
                   class="w-14 border-[1px] bg-[#f7f7f7] border-[#e5e5e5] p-3 rounded-l-full">
                 <button class="before:ease px-6 rounded-r-full flex justify-center items-center bg-blue-900 ${customStyle} text-[17px] relative
     h-full py-1 overflow-hidden shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48
     before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-[#6bb42f]
-    before:transition-all before:duration-300 hover:text-white hover:shadow-black hover:before:-rotate-180">
+    before:transition-all before:duration-300 hover:text-white hover:shadow-black hover:before:-rotate-180" (click)="addToCart()">
                   <span class="relative z-10 text-sm text-white">Add to Cart</span>
                 </button>
               </div>
             </div>
-          </div>
-        </div>
+          </div> -->
+        <app-product-card *ngFor="let product of products" [product]="product"
+          (cartUpdate)="addToCart($event)"></app-product-card>
+        <!-- (click)="goToProductDetails(product._id)" -->
+        <!-- <app-product-card (click)="goToProductDetails(item._id)"/> -->
+        <!-- </div> -->
 
 
 
       </div>
-
-
-
-
 
       <div class="flex justify-center my-10">
         <div>
@@ -211,4 +223,5 @@
 
 
 </main>
-<router-outlet />
+<app-cart-modal #cartModal></app-cart-modal>
+<!-- <router-outlet /> -->

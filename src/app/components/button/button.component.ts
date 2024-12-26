@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-button',
@@ -9,5 +9,9 @@ import { Component } from '@angular/core';
 })
 export class ButtonComponent {
   customStyle = ""
-  text="Buy Now"
+  @Input() btn_text ="Buy Now"
+
+  @Input() label: string = 'Button';
+  @Input() type: 'primary' | 'secondary' = 'primary';
+  @Output() onClick = new EventEmitter<Event>();
 }
