@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 import { ProductCardComponent } from "../../components/product-card/product-card.component";
 import { AuthService } from '../../services/auth/auth.service';
+import { HeaderComponent } from "../../components/header/header.component";
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,8 @@ import { AuthService } from '../../services/auth/auth.service';
     ButtonComponent,
     CommonModule,
     CartModalComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    HeaderComponent
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
