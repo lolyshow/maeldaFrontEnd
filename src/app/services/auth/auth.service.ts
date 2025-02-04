@@ -77,7 +77,7 @@ export class AuthService {
 
     const options = { headers };
 
-    return this.http.get<number>(`${this.endPoint}/cart`, options);
+    return this.http.get<number>(`${this.endPoint}/cart`);
   }
 
 }

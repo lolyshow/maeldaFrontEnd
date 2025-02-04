@@ -16,7 +16,7 @@ export class CartService {
 
   private cartItems = new BehaviorSubject<CartItem[]>([]);
   cartItems$ = this.cartItems.asObservable();
-  private cartApiUrl = 'localhost:5001/api/user/cart';
+  private cartApiUrl = 'http://localhost:5001/api/user/cart';
   private cartItemCount = new BehaviorSubject<number>(0);
 
 
@@ -31,7 +31,7 @@ export class CartService {
   }
 
   getCartItems():void {
-    this.http.get<{products:any[]}>(`${this.cartApiUrl}`)
+    this.http.get<{products:any[]}>(`${this.cartApiUrl}`, )
     .pipe(
       map((response)=>response?.products?.length),
       tap((count)=>this.cartItemCount.next(count))

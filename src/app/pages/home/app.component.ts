@@ -6,9 +6,10 @@ import { CommonModule } from '@angular/common';
 import { CartModalComponent } from '../../cart-modal/cart-modal.component';
 import { Router } from '@angular/router';
 import { ProductService } from '../../services/product.service';
-import { ProductCardComponent } from "../../components/product-card/product-card.component";
+import { ProductCardComponent } from '../../components/product-card/product-card.component';
 import { AuthService } from '../../services/auth/auth.service';
-import { HeaderComponent } from "../../components/header/header.component";
+import { HeaderComponent } from '../../components/header/header.component';
+import { FooterComponent } from '../../components/footer/footer.component';
 
 @Component({
   selector: 'app-home',
@@ -20,30 +21,41 @@ import { HeaderComponent } from "../../components/header/header.component";
     CommonModule,
     CartModalComponent,
     ProductCardComponent,
-    HeaderComponent
-],
+    HeaderComponent,
+    FooterComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class HomeComponent {
+  currentTab = 'chicken';
+  handleSwitchTab(tabname: string) {
+    this.currentTab = tabname;
+  }
+
 
   products: any[] = [];
   cartCount: number = 0;
 
-  constructor(private productService: ProductService, private router: Router, private cartService: CartService, private loginService: AuthService ) {}
+  constructor(
+    private productService: ProductService,
+    private router: Router,
+    private cartService: CartService,
+    private loginService: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.productService.getProducts().subscribe((data) => {
       this.products = data;
     });
 
-    this.loginService.getCartItems().subscribe((data)=>{
-      console.log("myData",data)
-    })
+    this.loginService.getCartItems().subscribe((data) => {
+      console.log('myData', data);
+    });
 
-    this.cartService.getCartCount().subscribe((count)=>{
+    this.cartService.getCartCount().subscribe((count) => {
       this.cartCount = count;
-    })
+    });
 
     this.cartService.getCartItems();
     // this.cartService.getCartTotalItemsgetProducts().subscribe((data) => {
@@ -81,34 +93,33 @@ export class HomeComponent {
     },
   ];
 
-
   addToCart(event: any) {
     // Logic to add the product to the cart
-      const payload = {
-        cart: [
-          {
-            _id: event.product._id,
-            count: event?.quantity
-          }
-        ]
-      };
-      // this.cartService.addToCart(payload).subscribe({
-      //   next: (response) => {
-      //     console.log('Product added to cart:', response);
-      //   },
-      //   error: (error) => {
-      //     console.log('Product added to cart:', error);
-      //   }
-      // });
+    const payload = {
+      cart: [
+        {
+          _id: event.product._id,
+          count: event?.quantity,
+        },
+      ],
+    };
+    // this.cartService.addToCart(payload).subscribe({
+    //   next: (response) => {
+    //     console.log('Product added to cart:', response);
+    //   },
+    //   error: (error) => {
+    //     console.log('Product added to cart:', error);
+    //   }
+    // });
 
-      this.loginService.addToCart(payload).subscribe({
+    this.loginService.addToCart(payload).subscribe({
       next: (response) => {
         console.log('Product added to cart:', response);
       },
       error: (error) => {
         console.error('Error adding product to cart:', error);
         // this.router.navigate(['/login']);
-      }
+      },
     });
 
     // Show the cart modal

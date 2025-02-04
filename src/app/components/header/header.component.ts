@@ -17,6 +17,7 @@ export class HeaderComponent {
     // Subscribe to cart count updates
     this.cartService.getCartCount().subscribe((count)=>{
       this.cartCount = count;
+      console.log("CartCounter",count)
     })
   }
 }

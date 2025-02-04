@@ -52,43 +52,22 @@
         </div>
       </div>
       <ul class="flex gap-4 justify-center mt-10">
-        <li class="flex justify-center items-center rounded-full h-12 w-32 bg-[#6bb42f] text-white"> <a
-            href="#">Featured</a></li>
-        <li class="flex justify-center items-center rounded-full h-12 w-32 bg-white border"><a href="#">Latest</a></li>
-        <li class="flex justify-center items-center rounded-full h-12 w-32 bg-white border"><a href="#">Best Selling</a>
+        <li class="flex justify-center items-center rounded-full h-12 w-32 bg-[#6bb42f] text-white"
+          (click)="handleSwitchTab('chicken')"> <a>Chicken</a></li>
+        <li class="flex justify-center items-center rounded-full h-12 w-32 bg-white border"
+          (click)="handleSwitchTab('Lamb')"><a>Lamb</a></li>
+        <li class="flex justify-center items-center rounded-full h-12 w-32 bg-white border"
+          (click)="handleSwitchTab('Beef')"><a>Beef</a>
+        </li>
+        <li class="flex justify-center items-center rounded-full h-12 w-32 bg-white border"
+          (click)="handleSwitchTab('Fish')"><a>Fish</a>
         </li>
       </ul>
 
       <!-- product card wrapper -->
       <div class="flex w-full flex-wrap justify-between py-5 lg:max-w-7xl sm:max-w-6xl mx-auto items-center">
-        <!-- <div *ngFor="let item of products"
-          class="card mt-6 rounded border bg-white h-96 w-[300px] pb-4 relative pointer"> -->
-        <!-- <div class="flex flex-col justify-center items-center w-full h-full">
-            <div class="flex justify-center items-center  w-full  h-[100rem]">
-              <img src="/images/meat.jpeg" class="w-48">
-            </div>
-
-            <div class="border-t w-[94%] pt-4 flex flex-col items-center justify-center">
-              <p class="">Air Plant</p>
-              <span itemprop="price" class="text-[#6bb42f] text-base leading-5 font-medium">{{ item.price | currency:'NGN':'symbol':'1.2-2' }} </span>
-              <div class="flex mt-2">
-                <input value="1" name="" type="number"
-                  class="w-14 border-[1px] bg-[#f7f7f7] border-[#e5e5e5] p-3 rounded-l-full">
-                <button class="before:ease px-6 rounded-r-full flex justify-center items-center bg-blue-900 ${customStyle} text-[17px] relative
-    h-full py-1 overflow-hidden shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48
-    before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-[#6bb42f]
-    before:transition-all before:duration-300 hover:text-white hover:shadow-black hover:before:-rotate-180" (click)="addToCart()">
-                  <span class="relative z-10 text-sm text-white">Add to Cart</span>
-                </button>
-              </div>
-            </div>
-          </div> -->
         <app-product-card *ngFor="let product of products" [product]="product"
           (cartUpdate)="addToCart($event)"></app-product-card>
-        <!-- (click)="goToProductDetails(product._id)" -->
-        <!-- <app-product-card (click)="goToProductDetails(item._id)"/> -->
-        <!-- </div> -->
-
 
 
       </div>
@@ -133,47 +112,8 @@
         </div>
       </div>
 
+      <app-footer></app-footer>
 
-      <!-- footer Starts -->
-      <div class="pt-[5rem] mt-10 pb-[3rem] bg-gray-900">
-        <div class="w-[80%] mx-auto grid grid-cols-1 md:grid-cols-2 gap-[1rem] md:gap-[8rem]">
-          <div>
-            <h1 class="text-[25px] md:text-[30px] lg:text-[35px] leading-[2.4rem] text-white">
-              Get our emails for info on new items, sales and more.
-            </h1>
-
-            <div class="w-[100%] relative h-[2.7rem] mb-[0.3rem] bg-white ">
-              <input type="email" placeholder="Enter your email"
-                class="w-[70%] md:w-[79%] bg-white ml-4 outline-none h-[2.7rem]" />
-              <button
-                class="w-[20%] md:w-[18.5%] right-0 absolute h-[2.7rem] bg-blue-500 hover:bg-blue-700 transition-all duration-200">
-                Subscribe
-              </button>
-              <p class="text-[14px] mt-[0.2rem] text-white capitalize font-thin">
-                By subscribing you agree to our terms &amp; conditions and privacy
-                &amp; cookies policy
-              </p>
-            </div>
-          </div>
-          <div class="mt-[2rem] md:mt-0">
-            <h1 class="text-[20px] md:text-[25px] lg:text-[30px] leading-[2.4rem] text-white">
-              Need help?
-              <br />
-              (+000 1234 56 789)
-            </h1>
-            <p class="text-white mt-[0.5rem]">
-              We are available 8:00am - 7:00pm
-            </p>
-            <div class="mt-[2rem] flex items-center space-x-2">
-              <img alt="playstore" loading="lazy" width="130" height="130" decoding="async" data-nimg="1"
-                class="object-contain" src="/_next/image?url=%2Fimages%2Fgp.png&amp;w=384&amp;q=75" />
-              <img alt="appstore" loading="lazy" width="130" height="130" decoding="async" data-nimg="1"
-                class="object-contain" />
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- footer Ends -->
     </div>
   </div>
 
