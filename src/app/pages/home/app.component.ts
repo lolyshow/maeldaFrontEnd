@@ -103,16 +103,7 @@ export class HomeComponent {
         },
       ],
     };
-    // this.cartService.addToCart(payload).subscribe({
-    //   next: (response) => {
-    //     console.log('Product added to cart:', response);
-    //   },
-    //   error: (error) => {
-    //     console.log('Product added to cart:', error);
-    //   }
-    // });
-
-    this.loginService.addToCart(payload).subscribe({
+    this.cartService.addToCart(payload).subscribe({
       next: (response) => {
         console.log('Product added to cart:', response);
       },

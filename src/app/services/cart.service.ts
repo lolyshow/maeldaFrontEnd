@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, map, tap } from 'rxjs';
 
 interface CartItem {
@@ -12,7 +13,7 @@ interface CartItem {
   providedIn: 'root',
 })
 export class CartService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   private cartItems = new BehaviorSubject<CartItem[]>([]);
   cartItems$ = this.cartItems.asObservable();
@@ -24,10 +25,12 @@ export class CartService {
     return this.cartItemCount.asObservable();
   }
 
-  addToCart(payload:any): Observable<any> {
-    console.log("calling",payload)
-    // const payload = { productId, quantity };
-    return this.http.post(this.cartApiUrl, payload);
+  addToCart(payload: any): Observable<any> {
+    return this.http.post(this.cartApiUrl, payload).pipe(
+      tap(() => {
+        this.getCartItems(); // Refresh cart count after adding
+      })
+    );
   }
 
   getCartItems():void {
@@ -37,7 +40,9 @@ export class CartService {
       tap((count)=>this.cartItemCount.next(count))
     )
     .subscribe({
-      error: (err) => console.error("Error fetching cart items", err)
+      error: (err) => {
+        this.router.navigate(['/login']);
+        console.error("Error fetching cart items", err)}
     })
   }
 

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class AuthService {
   private tokenKey = 'authToken'; // Key to store token in local storage
   private refreshTokenKey = 'refreshToken'; // Key to store refresh token
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   // Login and return tokens
   login(email: string, password: string): Observable<any> {
@@ -47,36 +48,11 @@ export class AuthService {
     return !!this.getToken();
   }
 
-
-
   addToCart(payload:any): Observable<any> {
-    // const payload = { productId, quantity };
-    const authToken = this.getToken();
-    const refreshToken = this.getRefreshToken();
-
-    if (!authToken || !refreshToken) {
-      throw new Error('User is not authenticated');
-    }
-
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${authToken}`,
-      'Cookie': `refreshToken=${refreshToken}`
-    });
-    const options = { headers };
-
-    return this.http.post(this.endPoint+'cart', payload,options);
+    return this.http.post(this.endPoint+'cart', payload);
   }
 
   getCartItems(): Observable<number> {
-    const authToken = this.getToken();
-
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${authToken}`,
-    });
-
-    const options = { headers };
-
     return this.http.get<number>(`${this.endPoint}/cart`);
   }
 

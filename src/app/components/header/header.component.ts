@@ -18,6 +18,7 @@ export class HeaderComponent {
     this.cartService.getCartCount().subscribe((count)=>{
       this.cartCount = count;
       console.log("CartCounter",count)
-    })
+    });
+    this.cartService.getCartItems(); // call once to populate on page load
   }
 }
