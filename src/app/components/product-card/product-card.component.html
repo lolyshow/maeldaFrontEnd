@@ -1,7 +1,7 @@
 <div class="card mt-6 rounded border bg-white h-96 w-[300px] pb-4 relative pointer">
 
   <div class="flex flex-col justify-center items-center w-full h-full">
-    <div class="flex justify-center items-center  w-full  h-[100rem]">
+    <div (click)="viewMore(product._id)" class="flex cursor-pointer justify-center items-center  w-full  h-[100rem]">
       <img src="/images/meat.jpeg" class="w-48">
     </div>
 
@@ -16,12 +16,7 @@
   before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-[#6bb42f]
   before:transition-all before:duration-300 hover:text-white hover:shadow-black hover:before:-rotate-180" >
           <span class="relative z-10 text-sm text-white">Add to Cart</span>
-        </button>
-        <!-- <app-button
-        [label]="'Add to Cart'"
-        [type]="'primary'"
-        (onClick)="addToCart()"
-      ></app-button> -->
+      </button>
       </div>
     </div>
   </div>

@@ -1,0 +1,6 @@
+<div class="p-5 max-w-4xl mx-auto" *ngIf="product">
+  <img [src]="product.image" class="w-full h-64 object-cover rounded mb-5" />
+  <h2 class="text-2xl font-bold mb-2">{{ product.name }}</h2>
+  <p class="text-green-700 text-xl mb-2">{{ product.price | currency:'NGN' }}</p>
+  <p class="text-gray-700">{{ product.description }}</p>
+</div>

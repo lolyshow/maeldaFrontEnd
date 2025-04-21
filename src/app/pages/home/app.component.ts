@@ -58,9 +58,6 @@ export class HomeComponent {
     });
 
     this.cartService.getCartItems();
-    // this.cartService.getCartTotalItemsgetProducts().subscribe((data) => {
-    //   this.products = data;
-    // });
   }
 
   title = 'maeldaFrontEnd';

@@ -56,4 +56,8 @@ export class CartService {
   getCartItemCount() {
     return this.cartItems.value.reduce((acc, item) => acc + item.quantity, 0);
   }
+
+  fetchCartFromServer() {
+    return this.http.get<{ products: any[] }>(this.cartApiUrl);
+  }
 }

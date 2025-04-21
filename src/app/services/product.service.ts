@@ -16,7 +16,7 @@ export class ProductService {
   }
 
   // Method to get a single product by id
-  getProductById(id: number): Observable<any> {
+  getProductById(id: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/${id}`);
   }
 }
